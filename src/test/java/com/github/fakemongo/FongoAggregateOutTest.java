@@ -59,9 +59,6 @@ public class FongoAggregateOutTest {
         assertEquals("pie", secondCollection.find(fongoRule.parseDBObject("{_id:1}")).next().get("category"));
         assertEquals("chicken pot", secondCollection.find(fongoRule.parseDBObject("{_id:4}")).next().get("type"));
 
-
-        // Clean up second collection
-        secondCollection.drop();
     }
 
 
@@ -86,8 +83,7 @@ public class FongoAggregateOutTest {
         assertNotNull(result);
         assertEquals(fongoRule.parse(data), result);
         assertEquals(0, secondCollection.count());
-        // Clean up second collection
-        secondCollection.drop();
+
     }
 
     /**
@@ -119,7 +115,5 @@ public class FongoAggregateOutTest {
         assertEquals("pie", newCollection.find(fongoRule.parseDBObject("{_id:1}")).next().get("category"));
         assertEquals("chicken pot", newCollection.find(fongoRule.parseDBObject("{_id:4}")).next().get("type"));
 
-        // Clean up second collection
-        newCollection.drop();
     }
 }
